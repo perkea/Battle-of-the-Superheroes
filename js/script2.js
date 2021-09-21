@@ -6,6 +6,8 @@ const superheroes = [];
 let deckSuperheroes = [];
 let computersDeck = [];
 let playersDeck = [];
+let playersCard4;
+let computersCard4;
 
 
 
@@ -29,6 +31,8 @@ function checkHeroes() {
     if (superheroes.length > 12) {
         createDeck();
         divideDeck();
+        startGame();
+        declareWar();
 
     } else {
 
@@ -123,167 +127,198 @@ function createDeck() {
 
 //dividing the deck into two decks one for the player and one for the computer
 
-function divideDeck(){
- superheroCard1 = deckSuperheroes.pop();
-playersDeck.push(superheroCard1);
+function divideDeck() {
+    superheroCard1 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard1);
 
-superheroCard2 = deckSuperheroes.pop();
-playersDeck.push(superheroCard2);
+    superheroCard2 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard2);
 
-superheroCard3 = deckSuperheroes.pop();
-playersDeck.push(superheroCard3);
+    superheroCard3 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard3);
 
-superheroCard4 = deckSuperheroes.pop();
-playersDeck.push(superheroCard4);
+    superheroCard4 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard4);
 
-superheroCard5 = deckSuperheroes.pop();
-playersDeck.push(superheroCard5);
+    superheroCard5 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard5);
 
-superheroCard6 = deckSuperheroes.pop();
-playersDeck.push(superheroCard6);
+    superheroCard6 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard6);
 
-superheroCard7= deckSuperheroes.pop();
-playersDeck.push(superheroCard7);
+    superheroCard7 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard7);
 
-superheroCard8 = deckSuperheroes.pop();
-playersDeck.push(superheroCard8);
+    superheroCard8 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard8);
 
-superheroCard9 = deckSuperheroes.pop();
-playersDeck.push(superheroCard9);
+    superheroCard9 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard9);
 
-superheroCard10 = deckSuperheroes.pop();
-playersDeck.push(superheroCard10);
+    superheroCard10 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard10);
 
-superheroCard11 = deckSuperheroes.pop();
-playersDeck.push(superheroCard11);
+    superheroCard11 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard11);
 
-superheroCard12 = deckSuperheroes.pop();
-playersDeck.push(superheroCard12);
+    superheroCard12 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard12);
 
-superheroCard13 = deckSuperheroes.pop();
-playersDeck.push(superheroCard13);
+    superheroCard13 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard13);
 
-superheroCard14 = deckSuperheroes.pop();
-playersDeck.push(superheroCard14);
+    superheroCard14 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard14);
 
-superheroCard15 = deckSuperheroes.pop();
-playersDeck.push(superheroCard15);
-superheroCard1 = deckSuperheroes.pop();
-playersDeck.push(superheroCard1);
+    superheroCard15 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard15);
+    superheroCard1 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard1);
 
-superheroCard16 = deckSuperheroes.pop();
-playersDeck.push(superheroCard16);
+    superheroCard16 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard16);
 
-superheroCard17 = deckSuperheroes.pop();
-playersDeck.push(superheroCard17);
+    superheroCard17 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard17);
 
-superheroCard18 = deckSuperheroes.pop();
-playersDeck.push(superheroCard18);
+    superheroCard18 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard18);
 
-superheroCard19 = deckSuperheroes.pop();
-playersDeck.push(superheroCard19);
-superheroCard1 = deckSuperheroes.pop();
-playersDeck.push(superheroCard1);
+    superheroCard19 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard19);
+    superheroCard1 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard1);
 
-superheroCard20 = deckSuperheroes.pop();
-playersDeck.push(superheroCard20);
+    superheroCard20 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard20);
 
-superheroCard21 = deckSuperheroes.pop();
-playersDeck.push(superheroCard21);
+    superheroCard21 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard21);
 
-superheroCard22 = deckSuperheroes.pop();
-playersDeck.push(superheroCard22);
+    superheroCard22 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard22);
 
-superheroCard23 = deckSuperheroes.pop();
-playersDeck.push(superheroCard23);
+    superheroCard23 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard23);
 
-superheroCard24 = deckSuperheroes.pop();
-playersDeck.push(superheroCard24);
+    superheroCard24 = deckSuperheroes.pop();
+    playersDeck.push(superheroCard24);
 
-superheroCard25 = deckSuperheroes.pop();
-computersDeck.push(superheroCard25);
+    superheroCard25 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard25);
 
-superheroCard26 = deckSuperheroes.pop();
-computersDeck.push(superheroCard26);
+    superheroCard26 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard26);
 
-superheroCard27 = deckSuperheroes.pop();
-computersDeck.push(superheroCard27);
+    superheroCard27 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard27);
 
-superheroCard28 = deckSuperheroes.pop();
-computersDeck.push(superheroCard28);
+    superheroCard28 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard28);
 
-superheroCard29 = deckSuperheroes.pop();
-computersDeck.push(superheroCard29);
+    superheroCard29 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard29);
 
-superheroCard30 = deckSuperheroes.pop();
-computersDeck.push(superheroCard30);
+    superheroCard30 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard30);
 
-superheroCard31= deckSuperheroes.pop();
-computersDeck.push(superheroCard31);
+    superheroCard31 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard31);
 
-superheroCard32 = deckSuperheroes.pop();
-computersDeck.push(superheroCard32);
+    superheroCard32 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard32);
 
-superheroCard33 = deckSuperheroes.pop();
-computersDeck.push(superheroCard33);
+    superheroCard33 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard33);
 
-superheroCard34 = deckSuperheroes.pop();
-computersDeck.push(superheroCard34);
+    superheroCard34 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard34);
 
-superheroCard35 = deckSuperheroes.pop();
-computersDeck.push(superheroCard35);
+    superheroCard35 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard35);
 
-superheroCard36 = deckSuperheroes.pop();
-computersDeck.push(superheroCard36);
+    superheroCard36 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard36);
 
-superheroCard37 = deckSuperheroes.pop();
-computersDeck.push(superheroCard37);
+    superheroCard37 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard37);
 
-superheroCard38 = deckSuperheroes.pop();
-computersDeck.push(superheroCard38);
+    superheroCard38 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard38);
 
-superheroCard39 = deckSuperheroes.pop();
-computersDeck.push(superheroCard39);
-superheroCard1 = deckSuperheroes.pop();
-computersDeck.push(superheroCard1);
+    superheroCard39 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard39);
+    superheroCard1 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard1);
 
-superheroCard40 = deckSuperheroes.pop();
-computersDeck.push(superheroCard40);
+    superheroCard40 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard40);
 
-superheroCard41 = deckSuperheroes.pop();
-computersDeck.push(superheroCard41);
+    superheroCard41 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard41);
 
-superheroCard42 = deckSuperheroes.pop();
-computersDeck.push(superheroCard42);
+    superheroCard42 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard42);
 
-superheroCard43 = deckSuperheroes.pop();
-computersDeck.push(superheroCard43);
+    superheroCard43 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard43);
 
-superheroCard44 = deckSuperheroes.pop();
-computersDeck.push(superheroCard44);
+    superheroCard44 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard44);
 
-superheroCard45 = deckSuperheroes.pop();
-computersDeck.push(superheroCard45);
+    superheroCard45 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard45);
 
-superheroCard46 = deckSuperheroes.pop();
-computersDeck.push(superheroCard46);
+    superheroCard46 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard46);
 
-superheroCard47 = deckSuperheroes.pop();
-computersDeck.push(superheroCard47);
+    superheroCard47 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard47);
 
-superheroCard48= deckSuperheroes.pop();
-computersDeck.push(superheroCard48);
+    superheroCard48 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard48);
 
-superheroCard49= deckSuperheroes.pop();
-computersDeck.push(superheroCard49);
+    superheroCard49 = deckSuperheroes.pop();
+    computersDeck.push(superheroCard49);
 
 
 
 
 }
 
+function startGame() {
+    let playersCard = playersDeck.pop();
+    let computersCard = computersDeck.pop();
 
+    if (playersCard === computersCard) {
 
+        declareWar();
 
+    } else {
+        playersDeck.pop();
+        computersDeck.pop();
 
+    }
 
+}
+
+function declareWar() {
+    playersDeck.pop();
+    playersDeck.pop();
+    playersDeck.pop();
+    playersCard4 = playersDeck.pop();
+    console.log(playersCard4);
+    computersDeck.pop();
+    computersDeck.pop();
+    computersDeck.pop();
+    computersDeck.pop();
+    computersCard4 = computersDeck.pop();
+    if (playersCard4.rank > computersCard4.rank) {
+        console.log("Player wins");
+    } else if (layersCard4.rank === computersCard4.rank) {
+        declareWar;
+    } else {
+        console.log("Computer wins");
+    }
+
+}
