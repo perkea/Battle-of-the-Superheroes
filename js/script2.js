@@ -3,51 +3,18 @@
 const BASE_URL = 'https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api';
 let superheroData;
 const superheroes = [];
-
-
-///DOM elements
-
+let deckSuperheroes = [];
 
 
 
 
-
-//FUNCTIONS
-// superheros - array of super heros
-// return array of 52 cards containing 13 superheros
-function buildDeck(superheros) {
-    let cards = [];
-    // TODO: 
-    return cards;
-}
-
-
-// 
-// return array of superheros
-// function arrayOfSuperheroes(id) {
-//     
-//     superheroes.push()
-
-// const superheroesCards = superheroData.map(function(superhero){
-// return `<main id = "card">
-// <p id = "icon"></p>>
-//   <p id="image"></p>
-//   <p id = "name"><span id = "rank"></span></p>
-//   <p id="year"></p>
-//   <p id = "powerstats">Powerstats</p>
-//   <p id="rated"></p>
-// </main>`
-
-// })
-// $("main").html(superheroesCards);
-//}
-
-// set up a function to get a single superhero
-function createSuperhero(idx, id) {
+// set up a function to make a ajax call to the server to get the 13 superheroes
+function getSuperheroes(idx, id, checkHeroes) {
     $.ajax(`${BASE_URL}/id/${id}.json`).then(function (data) {
         console.log("data1", data);
         superheroes.push(data);
         data.rank = idx;
+        checkHeroes();
         render();
 
     }, function (error) {
@@ -56,36 +23,42 @@ function createSuperhero(idx, id) {
 
 }
 
-createSuperhero(1, 251);
-createSuperhero(2, 248);
-createSuperhero(3, 69);
-createSuperhero(4, 579);
-createSuperhero(5, 346);
-createSuperhero(6, 106);
-createSuperhero(7, 107);
-createSuperhero(8, 49);
-createSuperhero(9, 418);
-createSuperhero(10, 714);
-createSuperhero(11, 20);
-createSuperhero(12, 659);
-createSuperhero(13, 1);
+function checkHeroes() {
+    if (superheroes.length > 12) {
+        createDeck()
 
-// setting up the game: create card deck using super api 
+    } else {
+
+    }
 
 
-//takes a superhero Api and returns a card
+}
+
+getSuperheroes(1, 251, checkHeroes);
+getSuperheroes(2, 248, checkHeroes);
+getSuperheroes(3, 69, checkHeroes);
+getSuperheroes(4, 579, checkHeroes);
+getSuperheroes(5, 346, checkHeroes);
+getSuperheroes(6, 106, checkHeroes);
+getSuperheroes(7, 107, checkHeroes);
+getSuperheroes(8, 49, checkHeroes);
+getSuperheroes(9, 418, checkHeroes);
+getSuperheroes(10, 714, checkHeroes);
+getSuperheroes(11, 20, checkHeroes);
+getSuperheroes(12, 659, checkHeroes);
+getSuperheroes(13, 1, checkHeroes);
 
 
 
 
 
 
-//1 create a card for each superhero with three propeties from that object;
+//1 create a card for each superhero with four propeties from that object;
 //push those card to the card deck array
 
 function render() {
     const htmlCards = superheroes.map(function (superhero) {
-        console.log("powerstats",superhero.powerstats);
+        console.log("powerstats", superhero.powerstats);
         console.log(superhero.work);
         console.log(superhero.rank);
 
@@ -102,9 +75,49 @@ function render() {
 
     });
 
-    //we need to generate html for each object inside launch data 
 
-    // set html content to the html we generate
     $("main").html(htmlCards);
+
+}
+
+
+
+//Creating a deck of 52 superheroes
+
+function createDeck() {
+    console.log(superheroes);
+    superheroes.forEach(function (superhero) {
+        const returnedTarget = Object.assign({}, superhero);
+        console.log(returnedTarget);
+        deckSuperheroes.push(returnedTarget);
+
+
+    })
+
+    superheroes.forEach(function (superhero) {
+        const returnedTarget = Object.assign({}, superhero);
+        console.log(returnedTarget);
+        deckSuperheroes.push(returnedTarget);
+
+
+    })
+    superheroes.forEach(function (superhero) {
+        const returnedTarget = Object.assign({}, superhero);
+        console.log(returnedTarget);
+        deckSuperheroes.push(returnedTarget);
+
+
+    })
+    superheroes.forEach(function (superhero) {
+        const returnedTarget = Object.assign({}, superhero);
+        console.log(returnedTarget);
+        deckSuperheroes.push(returnedTarget);
+
+
+    })
+
+
+
+
 
 }
