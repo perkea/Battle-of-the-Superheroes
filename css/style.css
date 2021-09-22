@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    /* background-image: url("https://gmedia.playstation.com/is/image/SIEPDC/superheroes-guide-listing-thumb-01-en-04dec20?$1600px--t$"); */
 }
 
 header, footer {
@@ -21,7 +22,7 @@ header {
     background-color: #423f3f;
     color: #ffffff;
     box-shadow: 1px 1px 5px 3px #808080;
-    padding-left: 1rem;
+    padding-left: 12rem;
 }
 
 footer {
@@ -43,8 +44,19 @@ article {
     flex-direction: column;
     padding: 1rem;
     margin: 1rem;
-    width: 18.75rem;
-    height: 9.375rem;
+    width: 8.75rem;
+    height: 13.375rem;
     border-radius: 7px;
     border: 1px solid #423f3f;
+    background-color: black;
+    color: white;
+}
+
+.card-title {
+    margin-top: 0px;
+    margin-bottom: 7px;
+}
+.superhero-img{
+
+    width:100px
 }
