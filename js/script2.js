@@ -12,13 +12,29 @@ let computersHand = [];
 const startButton = $(".start-button");
 
 //Dom elements
-const superheroName = $(".name");
-let superheroImg = $(".superhero-image");
+// const superheroName = $(".name");
+// let superheroImgel = $(".superhero-image");
+// const superheroRank = $(".rank");
+const playersDeckEl = $(".players-deck");
+const playersHandEl = $(".players-hand");
+const computersDeckEl= $(".computers-deck");
+const computersHandEl = $(".computers-hand");
+const playersResultEl = $(".players-result");
+const computersResultEl = $(".computers-result");
 
-const superheroRank = $(".rank");
+function renderPlay(){
+let superhero= playersHand[0];
 
+playersHandEl.html(
+    `<article> 
+                     
+    <h5 class="card-title"><span>(${superhero.rank}) </span>${superhero.name}</h5>
+    <img class = "superhero-img" src = "${superhero.images.md}"/>
+    <p></p>
+ 
+</article>`)
 
-
+}
 
 // set up a function to make a ajax call to the server to get the 13 superheroes
 function getSuperheroes(idx, id, checkHeroes) {
@@ -158,31 +174,27 @@ function playGame() {
             // playersDeck.push(computersHand);
             playersDeck = playersDeck.concat(playersHand.splice(0, playersHand.length));
             playersDeck = playersDeck.concat(computersHand.splice(0, computersHand.length));
-    
-    
-    
-    
+
+
+
+
         } else if (playersHand[0].rank < computersHand[0].rank) {
             console.log("Computer wins");
             // computersDeck.push(computersHand);
             // computersDeck.push(playersHand);
             computersDeck = computersDeck.concat(computersHand.splice(0, computersHand.length));
             computersDeck = computersDeck.concat(playersHand.splice(0, playersHand.length));
-    
-    
+
+
         } else {
             declareWar();
-    
-    }
-    
-    
-    }
-    if (playersHand.length === 0 && computersHand.length === 0) {
-        playersHand.unshift(playersDeck.pop());
-        computersHand.unshift(computersDeck.pop());
+
+        }
+
 
     }
 
+    renderPlay();
 }
 
 
