@@ -6,8 +6,13 @@ const superheroes = [];
 let deckSuperheroes = [];
 let computersDeck = [];
 let playersDeck = [];
+let playersHand = [];
+let computersHand = [];
 let playersCard4;
 let computersCard4;
+const playersName = $(".players-name");
+const addButton = $(".add-name");
+
 
 
 
@@ -30,8 +35,10 @@ function getSuperheroes(idx, id, checkHeroes) {
 function checkHeroes() {
     if (superheroes.length > 12) {
         createDeck();
+        //shuffleDeck();
         divideDeck();
         startGame();
+        setPlayersName();
         declareWar();
 
     } else {
@@ -63,29 +70,29 @@ getSuperheroes(13, 1, checkHeroes);
 //1 create a card for each superhero with four propeties from that object;
 //push those card to the card deck array
 
-function render() {
-    const htmlCards = superheroes.map(function (superhero) {
-        console.log("powerstats", superhero.powerstats);
-        console.log(superhero.work);
-        console.log(superhero.rank);
+// function render() {
+//     const htmlCards = superheroes.map(function (superhero) {
+//         console.log("powerstats", superhero.powerstats);
+//         console.log(superhero.work);
+//         console.log(superhero.rank);
 
-        return `<article>
-  <h1 id = "name">Name:${superhero.name}</h1>
-  <img id = "image">
-  <p id = "powerstats">Biography:${superhero.biography.aliases}</p>
-  
-
-  <p id = "work">${superhero.work.occupation}</p>
-  <p id = "rank>Rank:${superhero.rank}</p>
-  
-        </article>`
-
-    });
+//         return `<article>
+//   <h1 id = "name">Name:${superhero.name}</h1>
+//   <img id = "image">
+//   <p id = "powerstats">Biography:${superhero.biography.aliases}</p>
 
 
-    $("main").html(htmlCards);
+//   <p id = "work">${superhero.work.occupation}</p>
+//   <p id = "rank>Rank:${superhero.rank}</p>
 
-}
+//         </article>`
+
+//     });
+
+
+//     $("main").html(htmlCards);
+
+// }
 
 
 
@@ -125,200 +132,82 @@ function createDeck() {
 
 }
 
+//Shuffling the deck
+// function shuffleDeck(deckSuperheroes){
+//     console.log(deckSuperheroes.length);
+//     for(var i= deckSuperheroes.length-1;i>0;i--){
+//     console.log(deckSuperheroes.length);
+//     var random = Math.floor(Math.random()*(i+1));
+//     [array[i],array[random]]=[array[random],array[i]]
+//     };
+
+//     };
+
 //dividing the deck into two decks one for the player and one for the computer
 
 function divideDeck() {
-    superheroCard1 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard1);
+    for (let i = 0; i < 27; i++) {
 
-    superheroCard2 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard2);
+       playersDeck.push(deckSuperheroes.pop());
+        
+    }
 
-    superheroCard3 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard3);
+    for(let i = 27; i<54; i++){
 
-    superheroCard4 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard4);
-
-    superheroCard5 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard5);
-
-    superheroCard6 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard6);
-
-    superheroCard7 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard7);
-
-    superheroCard8 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard8);
-
-    superheroCard9 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard9);
-
-    superheroCard10 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard10);
-
-    superheroCard11 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard11);
-
-    superheroCard12 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard12);
-
-    superheroCard13 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard13);
-
-    superheroCard14 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard14);
-
-    superheroCard15 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard15);
-    superheroCard1 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard1);
-
-    superheroCard16 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard16);
-
-    superheroCard17 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard17);
-
-    superheroCard18 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard18);
-
-    superheroCard19 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard19);
-    superheroCard1 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard1);
-
-    superheroCard20 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard20);
-
-    superheroCard21 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard21);
-
-    superheroCard22 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard22);
-
-    superheroCard23 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard23);
-
-    superheroCard24 = deckSuperheroes.pop();
-    playersDeck.push(superheroCard24);
-
-    superheroCard25 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard25);
-
-    superheroCard26 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard26);
-
-    superheroCard27 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard27);
-
-    superheroCard28 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard28);
-
-    superheroCard29 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard29);
-
-    superheroCard30 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard30);
-
-    superheroCard31 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard31);
-
-    superheroCard32 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard32);
-
-    superheroCard33 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard33);
-
-    superheroCard34 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard34);
-
-    superheroCard35 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard35);
-
-    superheroCard36 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard36);
-
-    superheroCard37 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard37);
-
-    superheroCard38 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard38);
-
-    superheroCard39 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard39);
-    superheroCard1 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard1);
-
-    superheroCard40 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard40);
-
-    superheroCard41 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard41);
-
-    superheroCard42 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard42);
-
-    superheroCard43 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard43);
-
-    superheroCard44 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard44);
-
-    superheroCard45 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard45);
-
-    superheroCard46 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard46);
-
-    superheroCard47 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard47);
-
-    superheroCard48 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard48);
-
-    superheroCard49 = deckSuperheroes.pop();
-    computersDeck.push(superheroCard49);
-
-
-
+        computersDeck.push(deckSuperheroes.pop());
+    }
 
 }
 
-function startGame() {
-    let playersCard = playersDeck.pop();
-    let computersCard = computersDeck.pop();
 
-    if (playersCard === computersCard) {
+
+function startGame() {
+    playersHand.push(playersDeck.pop());
+    computersHand.push(computersDeck.pop());
+
+
+    if (playersHand[0].rank[playersHand.length - 1] === computersHand[0].rank[computersHand.length - 1]) {
 
         declareWar();
 
+    } else if (playersHand[0].rank[playersHand.length - 1] > computersHand[0].rank[computersHand.length - 1]) {
+        playersDeck.push(playersHand);
+        playersDeck.push(computersHand);
+
+
     } else {
-        playersDeck.pop();
-        computersDeck.pop();
+        computersDeck.push(playersHand);
+        computersDeck.push(playersHand);
+
 
     }
 
 }
 
 function declareWar() {
-    playersDeck.pop();
-    playersDeck.pop();
-    playersDeck.pop();
-    playersCard4 = playersDeck.pop();
-    console.log(playersCard4);
-    computersDeck.pop();
-    computersDeck.pop();
-    computersDeck.pop();
-    computersDeck.pop();
-    computersCard4 = computersDeck.pop();
-    if (playersCard4.rank > computersCard4.rank) {
-        console.log("Player wins");
-    } else if (layersCard4.rank === computersCard4.rank) {
-        declareWar;
-    } else {
-        console.log("Computer wins");
+    for (let i = 0; i < 4; i++) {
+
+        playersHand.push(playersDeck.pop());
+        computersHand.push(computersDeck.pop());
     }
 
+    if (playersHand[0].rank[playersHand.length - 1] === computersHand[0].rank[computersHand.length - 1]) {
+
+      
+
+    } else if (playersHand[0].rank[playersHand.length - 1] > computersHand[0].rank[computersHand.length - 1]) {
+        playersDeck.push(playersHand);
+        playersDeck.push(computersHand);
+
+
+    } else {
+        computersDeck.push(playersHand);
+        computersDeck.push(playersHand);
+
+
+    }
+
+
 }
+
+
