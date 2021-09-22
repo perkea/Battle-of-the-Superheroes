@@ -8,11 +8,14 @@ let computersDeck = [];
 let playersDeck = [];
 let playersHand = [];
 let computersHand = [];
-let playersCard4;
-let computersCard4;
-const playersName = $(".players-name");
-const addButton = $(".add-name");
 
+const startButton = $(".start-button");
+
+//Dom elements
+const superheroName = $(".name");
+let superheroImg = $(".superhero-image");
+
+const superheroRank = $(".rank");
 
 
 
@@ -37,9 +40,6 @@ function checkHeroes() {
         createDeck();
         //shuffleDeck();
         divideDeck();
-        startGame();
-        setPlayersName();
-        declareWar();
 
     } else {
 
@@ -70,33 +70,25 @@ getSuperheroes(13, 1, checkHeroes);
 //1 create a card for each superhero with four propeties from that object;
 //push those card to the card deck array
 
-// function render() {
-//     const htmlCards = superheroes.map(function (superhero) {
-//         console.log("powerstats", superhero.powerstats);
-//         console.log(superhero.work);
-//         console.log(superhero.rank);
+function render() {
+    const htmlCards = superheroes.map(function (superhero) {
+//superheroImg = superheroImg.src
+        return `<article> 
+                     
+                      <h5 class="card-title"><span>(${superhero.rank}) </span>${superhero.name}</h5>
+                      <img class = "superhero-img" src = "${superhero.images.md}"/>
+                      <p></p>
+                   
+               </article>`;
+    });
 
-//         return `<article>
-//   <h1 id = "name">Name:${superhero.name}</h1>
-//   <img id = "image">
-//   <p id = "powerstats">Biography:${superhero.biography.aliases}</p>
+    $("main").html(htmlCards);  
 
-
-//   <p id = "work">${superhero.work.occupation}</p>
-//   <p id = "rank>Rank:${superhero.rank}</p>
-
-//         </article>`
-
-//     });
-
-
-//     $("main").html(htmlCards);
-
-// }
+}
 
 
 
-//Creating a deck of 52 superheroes
+//Creating a deck of 52 superheroes */}
 
 function createDeck() {
     console.log(superheroes);
@@ -146,15 +138,15 @@ function createDeck() {
 //dividing the deck into two decks one for the player and one for the computer
 
 function divideDeck() {
-    for (let i = 0; i < 27; i++) {
+    for (let i = 0; i < 26; i++) {
 
-       playersDeck.push(deckSuperheroes.pop());
-        
+        playersDeck.push(deckSuperheroes.pop());
+
     }
 
-    for(let i = 27; i<54; i++){
+    for (let i = 26; i < 52; i++) {
 
-        computersDeck.push(deckSuperheroes.pop());
+        computersDeck.push(deckSuperheroes.shift());
     }
 
 }
@@ -162,23 +154,24 @@ function divideDeck() {
 
 
 function startGame() {
-    playersHand.push(playersDeck.pop());
-    computersHand.push(computersDeck.pop());
+    playersHand.unshift(playersDeck.pop());
+    computersHand.unshift(computersDeck.pop());
 
 
-    if (playersHand[0].rank[playersHand.length - 1] === computersHand[0].rank[computersHand.length - 1]) {
+    if (playersHand[0].rank === computersHand[0].rank) {
 
         declareWar();
 
-    } else if (playersHand[0].rank[playersHand.length - 1] > computersHand[0].rank[computersHand.length - 1]) {
-        playersDeck.push(playersHand);
-        playersDeck.push(computersHand);
+    } else if (playersHand[0].rank > computersHand[0].rank) {
+        playersDeck = playersDeck.concat(playersHand.splice(0, playersHand.length));
+        playersDeck = playersDeck.concat(computersHand.splice(0, computersHand.length));
+
 
 
     } else {
-        computersDeck.push(playersHand);
-        computersDeck.push(playersHand);
 
+        computersDeck = computersDeck.concat(computersHand.splice(0, computersHand.length));
+        computersDeck = computersDeck.concat(playersHand.splice(0, playersHand.length));
 
     }
 
@@ -187,21 +180,21 @@ function startGame() {
 function declareWar() {
     for (let i = 0; i < 4; i++) {
 
-        playersHand.push(playersDeck.pop());
-        computersHand.push(computersDeck.pop());
+        playersHand.unshift(playersDeck.pop());
+        computersHand.unshift(computersDeck.pop());
     }
 
-    if (playersHand[0].rank[playersHand.length - 1] === computersHand[0].rank[computersHand.length - 1]) {
+    if (playersHand[0].rank === computersHand[0].rank) {
 
-      
 
-    } else if (playersHand[0].rank[playersHand.length - 1] > computersHand[0].rank[computersHand.length - 1]) {
+
+    } else if (playersHand[0].rank > computersHand[0].rank) {
         playersDeck.push(playersHand);
         playersDeck.push(computersHand);
 
 
     } else {
-        computersDeck.push(playersHand);
+        computersDeck.push(computersHand);
         computersDeck.push(playersHand);
 
 
@@ -211,3 +204,5 @@ function declareWar() {
 }
 
 
+//Events
+startButton.on("click", startGame);
