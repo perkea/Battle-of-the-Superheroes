@@ -60,3 +60,14 @@ article {
 
     width:100px
 }
+.p-deck{
+    width: 5em;
+    height: 7em;
+    background-color: purple;
+    box-shadow: 0 0.0625em 0.125em rgba(0, 0, 0, 0.15);
+    border-radius: 0.25em;
+  } 
+  .computer-deck{
+margin-left: 40px;;
+
+  }
