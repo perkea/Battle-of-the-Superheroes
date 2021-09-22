@@ -23,7 +23,7 @@ const superheroRank = $(".rank");
 // set up a function to make a ajax call to the server to get the 13 superheroes
 function getSuperheroes(idx, id, checkHeroes) {
     $.ajax(`${BASE_URL}/id/${id}.json`).then(function (data) {
-        console.log("data1", data);
+        //console.log("data1", data);
         superheroes.push(data);
         data.rank = idx;
         checkHeroes();
@@ -72,7 +72,7 @@ getSuperheroes(13, 1, checkHeroes);
 
 function render() {
     const htmlCards = superheroes.map(function (superhero) {
-//superheroImg = superheroImg.src
+        //superheroImg = superheroImg.src
         return `<article> 
                      
                       <h5 class="card-title"><span>(${superhero.rank}) </span>${superhero.name}</h5>
@@ -82,7 +82,7 @@ function render() {
                </article>`;
     });
 
-    $("main").html(htmlCards);  
+    $("main").html(htmlCards);
 
 }
 
@@ -94,7 +94,7 @@ function createDeck() {
     console.log(superheroes);
     superheroes.forEach(function (superhero) {
         const returnedTarget = Object.assign({}, superhero);
-        console.log(returnedTarget);
+
         deckSuperheroes.push(returnedTarget);
 
 
@@ -102,21 +102,20 @@ function createDeck() {
 
     superheroes.forEach(function (superhero) {
         const returnedTarget = Object.assign({}, superhero);
-        console.log(returnedTarget);
+
         deckSuperheroes.push(returnedTarget);
 
 
     })
     superheroes.forEach(function (superhero) {
         const returnedTarget = Object.assign({}, superhero);
-        console.log(returnedTarget);
         deckSuperheroes.push(returnedTarget);
 
 
     })
     superheroes.forEach(function (superhero) {
         const returnedTarget = Object.assign({}, superhero);
-        console.log(returnedTarget);
+
         deckSuperheroes.push(returnedTarget);
 
 
@@ -151,31 +150,48 @@ function divideDeck() {
 
 }
 
-
-
-function startGame() {
-    playersHand.unshift(playersDeck.pop());
-    computersHand.unshift(computersDeck.pop());
-
-
-    if (playersHand[0].rank === computersHand[0].rank) {
-
-        declareWar();
-
-    } else if (playersHand[0].rank > computersHand[0].rank) {
-        playersDeck = playersDeck.concat(playersHand.splice(0, playersHand.length));
-        playersDeck = playersDeck.concat(computersHand.splice(0, computersHand.length));
-
-
-
-    } else {
-
-        computersDeck = computersDeck.concat(computersHand.splice(0, computersHand.length));
-        computersDeck = computersDeck.concat(playersHand.splice(0, playersHand.length));
+function playGame() {
+    if (playersHand.length > 0 && computersHand.length > 0) {
+        if (playersHand[0].rank > computersHand[0].rank) {
+            console.log("Player wins");
+            // playersDeck.push(playersHand);
+            // playersDeck.push(computersHand);
+            playersDeck = playersDeck.concat(playersHand.splice(0, playersHand.length));
+            playersDeck = playersDeck.concat(computersHand.splice(0, computersHand.length));
+    
+    
+    
+    
+        } else if (playersHand[0].rank < computersHand[0].rank) {
+            console.log("Computer wins");
+            // computersDeck.push(computersHand);
+            // computersDeck.push(playersHand);
+            computersDeck = computersDeck.concat(computersHand.splice(0, computersHand.length));
+            computersDeck = computersDeck.concat(playersHand.splice(0, playersHand.length));
+    
+    
+        } else {
+            declareWar();
+    
+    }
+    
+    
+    }
+    if (playersHand.length === 0 && computersHand.length === 0) {
+        playersHand.unshift(playersDeck.pop());
+        computersHand.unshift(computersDeck.pop());
 
     }
 
 }
+
+
+
+
+
+
+
+
 
 function declareWar() {
     for (let i = 0; i < 4; i++) {
@@ -204,5 +220,6 @@ function declareWar() {
 }
 
 
+
 //Events
-startButton.on("click", startGame);
+startButton.on("click", playGame);
