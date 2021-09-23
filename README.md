@@ -25,5 +25,6 @@ Technologies used
 
 
 Screenshots
+![screenshot 1](./screenshot.png)
 
 
