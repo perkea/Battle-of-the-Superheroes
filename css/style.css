@@ -5,15 +5,17 @@
 
 body {
     font-family: Helvetica, cursive;
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0;
+    margin: auto;
     background: lightgrey;
+    text-align: center;
     /* background-image: url("https://gmedia.playstation.com/is/image/SIEPDC/superheroes-guide-listing-thumb-01-en-04dec20?$1600px--t$"); */
 }
 
-header,
+
 
 
 header {
@@ -21,6 +23,7 @@ header {
     color: #ffffff;
     box-shadow: 1px 1px 5px 3px #808080;
     padding-left: 12rem;
+    vertical-align: middle;
 }
 
 
@@ -47,6 +50,7 @@ article {
     color: white;
 }
 
+
 .start-button {
     background:rebeccapurple;
     border: none;
@@ -56,12 +60,22 @@ article {
     height: 45px;
     padding: 5px;
     outline: 0;
-    margin-left: 280px;
-    
-
-
+  margin: auto;
+    display: block;
 }
+input{
 
+    background:light green;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    width: 100px;
+    height: 45px;
+    padding: 5px;
+    outline: 0;
+  margin: auto;
+    display: block;  
+}
 .card-title {
     margin-top: 0px;
     margin-bottom: 7px;
