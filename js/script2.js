@@ -201,7 +201,7 @@ function declareWar() {
         computersHand.unshift(computersDeck.shift());
     }
 
-    playGame();
+    
 
     // if (playersHand[0].rank === computersHand[0].rank) {
     //     //TODO: fix 
