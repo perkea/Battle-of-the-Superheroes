@@ -1,14 +1,17 @@
 # Battle of the Superheroes
 
+![Image](https://i.ytimg.com/vi/LoGPuqnqx0Y/maxresdefault.jpg)
+
 ## Contents
 * [Title](#battle-of-the-superheroes)
-* [Content](#content)
 * [Path](#path-followed)
 * [Goal](#the-goal)
 * [Technologies](#technologies-used)
 * [Screenshots](#screenshots)
 * [Deployed Link](#link-to-deployed-site)
+* [Created By](#created-by)
 * [Inspiration](#inspirational-quote)
+
 
 
 ### Path followed
@@ -16,9 +19,10 @@ Perhaps this is a sentiment you’ve thought of before as you daydreamed about a
 Designing the game: 
 Developing that idea further, I took plain old paper and pen and drew my game as i pictured it in my head.
 Making the game: This is where you begin to create the game. 
-Deployment the game: This is when you publish your game for everyone in the world to see.
+Deployment the game: This is when you publish your game for everyone to see.
+:javascript
 
-
+ 📄 
 ### The Goal
 The goal is to be the first player to get all 52 cards. The deck is evenly divided, each player recieving 26 cards each.
 
@@ -46,6 +50,9 @@ If the cards are the same rank, it is War. Each player turns up one card face do
 ## Link to deployed site:
 https://perkea.github.io/battle-of-the-superheroes/
 
+
+## Created By
+Keara Pereira
 
 ## Inspirational quote 
 “Life is not about how many times you fall down. It's about how many times you get back up.”
