@@ -1,19 +1,16 @@
 # Battle of the Superheroes
 
-
-
-
 ## Contents
-* Title
-* Contents
-* Path followed
-* The Goal
-* Technologies
-* Screenshots
-* Deployed Link
+* [Title](#battle-of-the-superheroes)
+* [Content](#content)
+* [Path](#path-followed)
+* [Goal](#the-goal)
+* [Technologies](#technologies-used)
+* [Screenshots](#screenshots)
+* [Deployed Link](#link-to-deployed-site)
 
 
-### Path  followed
+### Path followed
 Perhaps this is a sentiment you’ve thought of before as you daydreamed about a game project that could be amazing if only you could make it reality. 
 Designing the game: 
 Developing that idea further, I took plain old paper and pen and drew my game as i pictured it in my head.
