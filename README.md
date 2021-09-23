@@ -8,6 +8,7 @@
 * [Technologies](#technologies-used)
 * [Screenshots](#screenshots)
 * [Deployed Link](#link-to-deployed-site)
+* [Inspiration](#inspirational-quote)
 
 
 ### Path followed
@@ -44,3 +45,7 @@ If the cards are the same rank, it is War. Each player turns up one card face do
 
 ## Link to deployed site:
 https://perkea.github.io/battle-of-the-superheroes/
+
+
+## Inspirational quote 
+“Life is not about how many times you fall down. It's about how many times you get back up.”
