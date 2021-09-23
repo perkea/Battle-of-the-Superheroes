@@ -9,14 +9,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    background: lightgrey;
     /* background-image: url("https://gmedia.playstation.com/is/image/SIEPDC/superheroes-guide-listing-thumb-01-en-04dec20?$1600px--t$"); */
 }
 
-header, footer {
-    display: flex;
-    align-items: center;
-    height: 3.125rem;
-}
+header,
+
 
 header {
     background-color: #423f3f;
@@ -51,89 +49,129 @@ article {
     background-color: black;
     color: white;
 }
-.start-button{
-    background: blue;
-  border: none;
-  color: white;
-  text-transform: uppercase;
-  width: 100px;
-  height: 45px;
-  padding: 5px;
-  outline: 0;
-  cursor: pointer;
- 
+
+.start-button {
+    background:rebeccapurple;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    width: 100px;
+    height: 45px;
+    padding: 5px;
+    outline: 0;
+    margin-left: 280px;
+    
+
+
 }
 
 .card-title {
     margin-top: 0px;
     margin-bottom: 7px;
 }
-.superhero-img{
 
-    width:100px
+.superhero-img {
+
+    width: 100px
 }
-.p-deck{
+
+.p-deck {
     width: 5em;
     height: 7em;
     position: relative;
-  background: transparent;
-  margin: 3em;
-  width: 99%;
-  height: auto;
-   
-   
+    background: transparent;
+    margin: 3em;
+    width: 99%;
+    height: auto;
+
+
     border-radius: 0.25em;
 
-  } 
-  
-  .players-hand{
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    margin: 1rem;
-    width: 8.75rem;
-    height: 13.375rem;
-    border-radius: 7px;
-    border: 1px solid red;
-    background-color: black;
-    
-  
-  }
-  .computers-hand{
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    margin: 1rem;
-    width: 8.75rem;
-    height: 13.375rem;
-    border-radius: 7px;
-    border: 1px solid #423f3f;
-    background-color: black;
-  
-  }
-  .players-deck{
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-    margin: 1rem;
-    width: 8.75rem;
-    height: 13.375rem;
-    border-radius: 7px;
-    border: 1px solid #423f3f;
-    background-color: black;
-    background-image: url("https://cdn1.vectorstock.com/i/thumb-large/27/40/playing-cards-signs-red-and-black-casino-checkered-vector-8492740.jpg");
-  
-  }
-  .computers-deck{
+}
 
-    flex-direction: row;
+.players-hand {
+    
+    /* margin-top: 1px;
+    padding: 1rem; */
+   
+
+    /* width: 8.75rem;
+    height: 13.375rem; */
+    /* border-radius: 7px;
+    border: 5px solid purple;
+    background-color: black; */
+
+
+}
+
+.computers-hand {
+
+/* 
+    padding: 1rem;
+    margin: 1rem; */
+
+   
+    /* width: 8.75rem;
+    height: 13.375rem; */
+    /* border-radius: 7px;
+    border: 5px solid purple;
+    background-color: black; */
+
+}
+
+.computers-hand > article {
+    border: 5px solid purple;
+    background-color: black;
+}
+
+.players-hand  > article {
+    border: 5px solid purple;
+    background-color: black;
+}
+
+.players-deck {
+
     padding: 1rem;
     margin: 1rem;
+  
     width: 8.75rem;
     height: 13.375rem;
     border-radius: 7px;
-    border: 1px solid #423f3f;
+    border: 5px solid purple;
     background-color: black;
     background-image: url("https://cdn1.vectorstock.com/i/thumb-large/27/40/playing-cards-signs-red-and-black-casino-checkered-vector-8492740.jpg");
-  
-  }
+
+}
+
+.computers-deck {
+
+   
+    
+
+    width: 8.75rem;
+    height: 13.375rem;
+    border-radius: 7px;
+    border: 5px solid purple;
+    background-color: black;
+    background-image: url("https://cdn1.vectorstock.com/i/thumb-large/27/40/playing-cards-signs-red-and-black-casino-checkered-vector-8492740.jpg");
+
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 400px;
+    background-color: white;
+    margin-top: 138px;
+    margin-left: 100px;
+}

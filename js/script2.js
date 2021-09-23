@@ -17,23 +17,28 @@ const startButton = $(".start-button");
 // const superheroRank = $(".rank");
 const playersDeckEl = $(".players-deck");
 const playersHandEl = $(".players-hand");
-const computersDeckEl= $(".computers-deck");
+const computersDeckEl = $(".computers-deck");
 const computersHandEl = $(".computers-hand");
 const playersResultEl = $(".players-result");
 const computersResultEl = $(".computers-result");
 
-function renderPlay(){
-let superhero= playersHand[0];
+function renderPlay() {
+    let phSuperhero = playersHand[0];
+    let chSuperhero = computersHand[0];
 
-playersHandEl.html(
-    `<article> 
-                     
-    <h5 class="card-title"><span>(${superhero.rank}) </span>${superhero.name}</h5>
-    <img class = "superhero-img" src = "${superhero.images.md}"/>
-    <p></p>
- 
-</article>`)
+    playersResultEl.html(`Total cards ${playersDeck.length}`);
+    computersResultEl.html(`Total cards ${computersDeck.length}`);
 
+    playersHandEl.html(`<article> 
+        <h5 class="card-title"><span>(${phSuperhero.rank}) </span>${phSuperhero.name}</h5>
+        <img class = "superhero-img" src = "${phSuperhero.images.md}"/>
+        <p></p>
+    </article>`);
+    computersHandEl.html(`<article> 
+        <h5 class="card-title"><span>(${chSuperhero.rank}) </span>${chSuperhero.name}</h5>
+        <img class = "superhero-img" src = "${chSuperhero.images.md}"/>
+        <p></p>
+    </article>`);
 }
 
 // set up a function to make a ajax call to the server to get the 13 superheroes
@@ -54,14 +59,12 @@ function getSuperheroes(idx, id, checkHeroes) {
 function checkHeroes() {
     if (superheroes.length > 12) {
         createDeck();
-        //shuffleDeck();
+        deckSuperheroes = deckSuperheroes.sort((a, b) => 0.5 - Math.random());
         divideDeck();
 
     } else {
 
     }
-
-
 }
 
 getSuperheroes(1, 251, checkHeroes);
@@ -139,16 +142,7 @@ function createDeck() {
 
 }
 
-//Shuffling the deck
-// function shuffleDeck(deckSuperheroes){
-//     console.log(deckSuperheroes.length);
-//     for(var i= deckSuperheroes.length-1;i>0;i--){
-//     console.log(deckSuperheroes.length);
-//     var random = Math.floor(Math.random()*(i+1));
-//     [array[i],array[random]]=[array[random],array[i]]
-//     };
 
-//     };
 
 //dividing the deck into two decks one for the player and one for the computer
 
@@ -170,29 +164,24 @@ function playGame() {
     if (playersHand.length > 0 && computersHand.length > 0) {
         if (playersHand[0].rank > computersHand[0].rank) {
             console.log("Player wins");
-            // playersDeck.push(playersHand);
-            // playersDeck.push(computersHand);
             playersDeck = playersDeck.concat(playersHand.splice(0, playersHand.length));
             playersDeck = playersDeck.concat(computersHand.splice(0, computersHand.length));
 
-
-
-
         } else if (playersHand[0].rank < computersHand[0].rank) {
             console.log("Computer wins");
-            // computersDeck.push(computersHand);
-            // computersDeck.push(playersHand);
             computersDeck = computersDeck.concat(computersHand.splice(0, computersHand.length));
             computersDeck = computersDeck.concat(playersHand.splice(0, playersHand.length));
 
-
         } else {
+            console.log("Declare war");
             declareWar();
-
         }
 
-
     }
+
+    playersHand.unshift(playersDeck.shift());
+    computersHand.unshift(computersDeck.shift());
+
 
     renderPlay();
 }
@@ -208,29 +197,33 @@ function playGame() {
 function declareWar() {
     for (let i = 0; i < 4; i++) {
 
-        playersHand.unshift(playersDeck.pop());
-        computersHand.unshift(computersDeck.pop());
+        playersHand.unshift(playersDeck.shift());
+        computersHand.unshift(computersDeck.shift());
     }
 
-    if (playersHand[0].rank === computersHand[0].rank) {
+    playGame();
+
+    // if (playersHand[0].rank === computersHand[0].rank) {
+    //     //TODO: fix 
+
+    // } else if (playersHand[0].rank > computersHand[0].rank) {
+    //     playersDeck.push(playersHand);
+    //     playersDeck.push(computersHand);
 
 
-
-    } else if (playersHand[0].rank > computersHand[0].rank) {
-        playersDeck.push(playersHand);
-        playersDeck.push(computersHand);
-
-
-    } else {
-        computersDeck.push(computersHand);
-        computersDeck.push(playersHand);
+    // } else {
+    //     computersDeck.push(computersHand);
+    //     computersDeck.push(playersHand);
 
 
-    }
+    // }
 
 
 }
+function changeMargin(){
+startButton.css("margin-left", "363px");
 
+}
 
 
 //Events
