@@ -9,7 +9,8 @@ let playersDeck = [];
 let playersHand = [];
 let computersHand = [];
 
-const startButton = $(".start-button");
+
+
 
 //Dom elements
 // const superheroName = $(".name");
@@ -21,26 +22,13 @@ const computersDeckEl = $(".computers-deck");
 const computersHandEl = $(".computers-hand");
 const playersResultEl = $(".players-result");
 const computersResultEl = $(".computers-result");
+const playersCardsLeft = $(".players-remaining-cards");
+const computersCardsLeft = $(".computers-remaining-cards");
+const startButton = $(".start-button");
+const winnerResultEl = $(".declare-winner");
 
-function renderPlay() {
-    let phSuperhero = playersHand[0];
-    let chSuperhero = computersHand[0];
 
-    playersResultEl.html(`Total cards ${playersDeck.length}`);
-    computersResultEl.html(`Total cards ${computersDeck.length}`);
-
-    playersHandEl.html(`<article> 
-        <h5 class="card-title"><span>(${phSuperhero.rank}) </span>${phSuperhero.name}</h5>
-        <img class = "superhero-img" src = "${phSuperhero.images.md}"/>
-        <p></p>
-    </article>`);
-    computersHandEl.html(`<article> 
-        <h5 class="card-title"><span>(${chSuperhero.rank}) </span>${chSuperhero.name}</h5>
-        <img class = "superhero-img" src = "${chSuperhero.images.md}"/>
-        <p></p>
-    </article>`);
-}
-
+//Functions
 // set up a function to make a ajax call to the server to get the 13 superheroes
 function getSuperheroes(idx, id, checkHeroes) {
     $.ajax(`${BASE_URL}/id/${id}.json`).then(function (data) {
@@ -56,16 +44,18 @@ function getSuperheroes(idx, id, checkHeroes) {
 
 }
 
+
+
 function checkHeroes() {
     if (superheroes.length > 12) {
         createDeck();
-        deckSuperheroes = deckSuperheroes.sort((a, b) => 0.5 - Math.random());
-        divideDeck();
-
+        // deckSuperheroes = deckSuperheroes.sort((a, b) => 0.5 - Math.random());
+        divideDeck()
+            
     } else {
-
     }
 }
+
 
 getSuperheroes(1, 251, checkHeroes);
 getSuperheroes(2, 248, checkHeroes);
@@ -81,29 +71,6 @@ getSuperheroes(11, 20, checkHeroes);
 getSuperheroes(12, 659, checkHeroes);
 getSuperheroes(13, 1, checkHeroes);
 
-
-
-
-
-
-//1 create a card for each superhero with four propeties from that object;
-//push those card to the card deck array
-
-function render() {
-    const htmlCards = superheroes.map(function (superhero) {
-        //superheroImg = superheroImg.src
-        return `<article> 
-                     
-                      <h5 class="card-title"><span>(${superhero.rank}) </span>${superhero.name}</h5>
-                      <img class = "superhero-img" src = "${superhero.images.md}"/>
-                      <p></p>
-                   
-               </article>`;
-    });
-
-    $("main").html(htmlCards);
-
-}
 
 
 
@@ -143,7 +110,6 @@ function createDeck() {
 }
 
 
-
 //dividing the deck into two decks one for the player and one for the computer
 
 function divideDeck() {
@@ -160,6 +126,8 @@ function divideDeck() {
 
 }
 
+
+//When the player clicks the button, this function starts the game
 function playGame() {
     if (playersHand.length > 0 && computersHand.length > 0) {
         if (playersHand[0].rank > computersHand[0].rank) {
@@ -184,12 +152,61 @@ function playGame() {
 
 
     renderPlay();
+    declareWinner();
 }
 
 
 
 
 
+function renderPlay() {
+    let phSuperhero = playersHand[0];
+    let chSuperhero = computersHand[0];
+
+    playersResultEl.html(`Total cards ${playersDeck.length}`);
+    computersResultEl.html(`Total cards ${computersDeck.length}`);
+
+    playersCardsLeft.html(`Total cards ${playersHand.length}`);
+    computersCardsLeft.html(`Total cards ${computersHand.length}`);
+
+    playersHandEl.html(`<article> 
+        <h5 class="card-title"><span>(${phSuperhero.rank}) </span>${phSuperhero.name}</h5>
+        <img class = "superhero-img" src = "${phSuperhero.images.md}"/>
+        <p></p>
+    </article>`);
+    computersHandEl.html(`<article> 
+        <h5 class="card-title"><span>(${chSuperhero.rank}) </span>${chSuperhero.name}</h5>
+        <img class = "superhero-img" src = "${chSuperhero.images.md}"/>
+        <p></p>
+    </article>`);
+  
+
+}
+
+
+
+
+
+
+
+//1 create a card for each superhero with four propeties from that object;
+//push those card to the card deck array
+
+function render() {
+    const htmlCards = superheroes.map(function (superhero) {
+        //superheroImg = superheroImg.src
+        return `<article> 
+                     
+                      <h5 class="card-title"><span>(${superhero.rank}) </span>${superhero.name}</h5>
+                      <img class = "superhero-img" src = "${superhero.images.md}"/>
+                      <p></p>
+                   
+               </article>`;
+    });
+
+    $("main").html(htmlCards);
+
+}
 
 
 
@@ -201,29 +218,59 @@ function declareWar() {
         computersHand.unshift(computersDeck.shift());
     }
 
+    if (playersHand[0].rank > computersHand[0].rank) {
+        console.log("Player wins");
+        playersDeck = playersDeck.concat(playersHand.splice(0, playersHand.length));
+        playersDeck = playersDeck.concat(computersHand.splice(0, computersHand.length));
+
+    } else if (playersHand[0].rank < computersHand[0].rank) {
+        console.log("Computer wins");
+        computersDeck = computersDeck.concat(computersHand.splice(0, computersHand.length));
+        computersDeck = computersDeck.concat(playersHand.splice(0, playersHand.length));
+
+    } else {
+        console.log("Declare war");
+
+    }
+}
+
+// if (playersHand[0].rank === computersHand[0].rank) {
+//     //TODO: fix 
+
+// } else if (playersHand[0].rank > computersHand[0].rank) {
+//     playersDeck.push(playersHand);
+//     playersDeck.push(computersHand);
+
+
+// } else {
+//     computersDeck.push(computersHand);
+//     computersDeck.push(playersHand);
+
+
+// }
+
+
+
+// function changeMargin(){
+// startButton.css("margin-left", "363px");
+
+// }
+
+function declareWinner(){
+    console.log("winner declared")
+if(playersDeck.length >50){
+   winnerResultEl.html(`Player is the winner with a total number of cards ${playersDeck.length}`)
+
+}else if(computersDeck.length >50){
+    winnerResultEl.html(`Computer Wins with a total number of cards ${playersDeck.length}`)
+}else{
+   
     
-
-    // if (playersHand[0].rank === computersHand[0].rank) {
-    //     //TODO: fix 
-
-    // } else if (playersHand[0].rank > computersHand[0].rank) {
-    //     playersDeck.push(playersHand);
-    //     playersDeck.push(computersHand);
-
-
-    // } else {
-    //     computersDeck.push(computersHand);
-    //     computersDeck.push(playersHand);
-
-
-    // }
-
+}
 
 }
-function changeMargin(){
-startButton.css("margin-left", "363px");
 
-}
+
 
 
 //Events
