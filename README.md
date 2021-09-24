@@ -22,7 +22,7 @@ Making the game: This is where you begin to create the game.
 Deployment the game: This is when you publish your game for everyone to see.
 :javascript
 
- 📄 
+ 
 ### The Goal
 The goal is to be the first player to get all 52 cards. The deck is evenly divided, each player recieving 26 cards each.
 
@@ -44,7 +44,7 @@ If the cards are the same rank, it is War. Each player turns up one card face do
 
 
 ## Screenshots
-![screenshot 1](./screenshot.png)
+![screenshot 1](screenshot.png)
 
 
 ## Link to deployed site:
@@ -53,6 +53,7 @@ https://perkea.github.io/battle-of-the-superheroes/
 
 ## Created By
 Keara Pereira
+file:///Users/kearapereira/Desktop/Screen%20Shot%202021-09-23%20at%205.45.59%20PM.png
 
 ## Inspirational quote 
 “Life is not about how many times you fall down. It's about how many times you get back up.”
