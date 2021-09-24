@@ -96,7 +96,6 @@ function divideDeck() {
     for (let i = 0; i < 26; i++) {
 
         playersDeck.push(deckSuperheroes.pop());
-
     }
 
     for (let i = 26; i < 52; i++) {
