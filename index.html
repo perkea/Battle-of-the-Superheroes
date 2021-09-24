@@ -17,36 +17,18 @@
     <h1>Battle of the Superheroes</h1>
   </header>
 
-  <table>
-    <tr>
-      <td>
-        <div class="players-result"></div>
-      </td>
-      <td>
-        <div class="players-remaining-cards"></div>
-      </td>
-      <td>
-        <div class="computers-remaining-cards"></div>
-      </td>
-      <td>
-        <div class="computers-result"></div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="players-deck card large shadow row1">Players Deck</div>
-      </td>
-      <td>
-        <div class="players-hand"></div>
-      </td>
-      <td>
-        <div class="computers-hand"></div>
-      </td>
-      <td>
-        <div class="computers-deck  card large row2">Computers Deck</div>
-      </td>
-    </tr>
-  </table>
+<div style="margin-top:15px;height:35px" class="card-flex-box">
+  <div style="flex-grow: 1" class=""><div class="players-result"></div></div>
+  <div style="flex-grow: 1" class=""><div class="players-remaining-cards"></div></div>
+  <div  style="flex-grow: 1"class=""><div class="computers-remaining-cards"></div></div>
+  <div style="flex-grow: 1"class=""> <div class="computers-result"></div></div>
+</div>
+<div class="card-flex-box">
+  <div style="flex-grow: 1" class=""> <div class="players-deck card large shadow row1"></div></div>
+  <div style="flex-grow: 1" class=""><div class="players-hand"></div></div>
+  <div  style="flex-grow: 1"class=""><div class="computers-hand"></div></div>
+  <div style="flex-grow: 1"class=""> <div class="computers-deck  card large row2"></div></div>
+</div>
 <p class = "declare-winner"></p>
 
 <br>
