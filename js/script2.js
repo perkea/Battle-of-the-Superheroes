@@ -13,9 +13,6 @@ let computersHand = [];
 
 
 //Dom elements
-// const superheroName = $(".name");
-// let superheroImgel = $(".superhero-image");
-// const superheroRank = $(".rank");
 const playersDeckEl = $(".players-deck");
 const playersHandEl = $(".players-hand");
 const computersDeckEl = $(".computers-deck");
@@ -24,7 +21,7 @@ const playersResultEl = $(".players-result");
 const computersResultEl = $(".computers-result");
 const playersCardsLeft = $(".players-remaining-cards");
 const computersCardsLeft = $(".computers-remaining-cards");
-const startButton = $(".start-button");
+const playButton = $(".play-button");
 const winnerResultEl = $(".declare-winner");
 
 
@@ -32,7 +29,6 @@ const winnerResultEl = $(".declare-winner");
 // set up a function to make a ajax call to the server to get the 13 superheroes
 function getSuperheroes(idx, id, checkHeroes) {
     $.ajax(`${BASE_URL}/id/${id}.json`).then(function (data) {
-        //console.log("data1", data);
         superheroes.push(data);
         data.rank = idx;
         checkHeroes();
@@ -74,7 +70,7 @@ getSuperheroes(13, 1, checkHeroes);
 
 
 
-//Creating a deck of 52 superheroes */}
+//Creating a deck of 52 superheroes */
 
 function createDeck() {
     console.log(superheroes);
@@ -184,17 +180,8 @@ function renderPlay() {
 }
 
 
-
-
-
-
-
-//1 create a card for each superhero with four propeties from that object;
-//push those card to the card deck array
-
 function render() {
     const htmlCards = superheroes.map(function (superhero) {
-        //superheroImg = superheroImg.src
         return `<article> 
                      
                       <h5 class="card-title"><span>(${superhero.rank}) </span>${superhero.name}</h5>
@@ -250,12 +237,6 @@ function declareWar() {
 // }
 
 
-
-// function changeMargin(){
-// startButton.css("margin-left", "363px");
-
-// }
-
 function declareWinner(){
     console.log("winner declared")
 if(playersDeck.length >50){
@@ -270,8 +251,5 @@ if(playersDeck.length >50){
 
 }
 
-
-
-
 //Events
-startButton.on("click", playGame);
+playButton.on("click", playGame);
