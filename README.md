@@ -12,6 +12,8 @@
 * [Deployed Link](#link-to-deployed-site)
 * [Created By](#created-by)
 * [Inspiration](#inspirational-quote)
+* [Future Enhancements](#future-enhancements)
+
 
 
 
@@ -60,3 +62,8 @@ Keara Pereira
 
 ## Inspirational quote 
 “Life is not about how many times you fall down. It's about how many times you get back up.”
+
+## Future Enhancements
+Add animations - animate the shuffle.
+Add sounds - when the player/computer clicks on a card
+Design - make the design look better
